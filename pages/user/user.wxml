@@ -1,0 +1,29 @@
+<!--user.wxml-->
+
+<view class="container">
+  <view class="user_base_info">
+    <view class="user_avatar">
+    <open-data type="userAvatarUrl"></open-data> 
+      <!--image src="{{avatar}}"></image-->
+      <!--LeeCH ^_^-->
+    </view>
+    <view class="user_info">
+    <open-data type="userNickName" lang="zh_CN"></open-data>
+      <text>
+        姓名：{{userData.name}}
+        电话：{{userData.phone}}
+      </text>
+    </view>
+  </view>
+
+  <view class="user_addr_manage">
+    <view class="user_addr_title">【地址管理】</view>
+    <block wx:for="1" wx:key="item">
+      <text class="addr_sub" bindtap="editAddr" >{{addrDate}}</text>
+      <view class="addr_edit" data-addrid="{{index+1}}"></view>
+  </block>
+  <!--LeeCH ^_^-->
+  <navigator url="../edit_addr/edit_addr">添加\修改地址+ </navigator>
+</view>
+
+</view>

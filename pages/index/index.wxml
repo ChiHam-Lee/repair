@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view scroll-y="true" class="page-body" bindscrolltolower="loadMore">
+    <!--banner-->
+    <view class="swiper">
+      <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for-items="{{banner_url}}" wx:key="item.id">
+          <swiper-item>
+            <block wx:if="{{item}}">
+              <image src="{{item}}" mode="aspectFill" />
+            </block>
+            <!--LeeCH ^_^-->
+            <block wx:else>
+              <image src="../../images/default_pic.png" mode="aspectFill"></image>
+            </block>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--nav-->
+    <view class="nav_top">
+      <view style='vertical'>
+        <block wx:for="{{list[curIndex]}}" wx:key="item.id">
+          <view class="nav_section_items">
+            <!--image-->
+            <view class="section_image" bindtap="bookTap" data-aid="{{item.id}}">
+              <block wx:if="{{item.coverpath}}">
+                <image src="/images/recommend_img_01.png" mode="aspectFill"></image>
+              </block>
+              <block wx:else>
+                <image src="../../images/default_pic.png" mode="aspectFill"></image>
+              </block>
+            </view>
+            <!--LeeCH ^_^-->
+            <!--content-->
+            <view class="section_cont" bindtap="bookTap" data-aid="{{item.id}}">
+              <view class="section_cont_sub">
+                <text>{{item.subject}}</text>
+              </view>
+              <view class="section_cont_price">{{item.price}}</view>
+              <view>{{item.message}}</view>
+            </view><!--LeeCH ^_^-->
+          </view>
+        </block>
+
+        <block wx:for="{{list[curIndex]}}" wx:key="item.id">
+          <view class="nav_section_items">
+            <!--image-->
+            <view class="section_image" bindtap="Evaluate" data-aid="{{item.id}}">
+              <block wx:if="{{item.coverpath}}">
+                <image src="/images/recommend_img_02.png" mode="aspectFill"></image>
+              </block>
+              <block wx:else>
+                <image src="../../images/default_pic.png" mode="aspectFill"></image>
+              </block>
+            </view>
+            <!--LeeCH ^_^-->
+            <!--content-->
+            <view class="section_cont" bindtap="Evaluate" data-aid="{{item.id}}">
+              <view class="section_cont_sub">
+                <text>我的评价</text>
+              </view>
+            </view>
+          </view>
+        </block>
+
+        <block wx:for="{{list[curIndex]}}" wx:key="item.id">
+          <view class="nav_section_items">
+            <!--image-->
+            <view class="section_image" bindtap="navigate" data-aid="{{item.id}}">
+              <block wx:if="{{item.coverpath}}">
+                <image src="/images/recommend_img_03.png" mode="aspectFill"></image>
+              </block>
+              <block wx:else>
+                <image src="../../images/default_pic.png" mode="aspectFill"></image>
+              </block>
+            </view>
+            <!--content-->
+            <view class="section_cont" bindtap="navigateDetail" data-aid="{{item.id}}">
+              <view class="section_cont_sub">
+                <text>我的报修记录</text>
+              </view><!--LeeCH ^_^-->
+            </view>
+          </view>
+        </block>
+      </view>
+      <!--LeeCH ^_^-->
+    </view>
+  </scroll-view>
+</view>

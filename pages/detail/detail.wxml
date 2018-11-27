@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="ar_coverpath">
+    <image src="../../images/banner_02.png" mode="aspectFill"></image>
+  </view>
+  <!--LeeCH ^_^-->
+  <view class="ar_cont">
+    <view class="ar_line"></view>
+    <text class="ar_cont_h1">记录详情</text>
+     <text class="ar_cont_h1">{{record}}</text>
+  </view>
+</view>
